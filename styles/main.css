@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+}
+.pageHeader {
+    position: fixed;
+    box-sizing: border-box;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    background: white;
+}
+.mainNav {
+    float: right;
+}
+.mainNav-ul, .dropdown {
+    list-style: none;
+}
+.mainNav-ul li {
+    float: left;
+    font-size: 2em;
+    margin: 0 5px 0 0;
+    padding: 18px 25px;
+}
+.dropdown li {
+    float: none;
+}
+.homeSec {
+    height: calc(100% - 60px);
+    width: 100%;
+    padding-top: 60px;
+    background: #add;
+    overflow: auto;
+    font-size: 1.5em;
+}
+.contactSec {
+    height: calc(100% - 60px);
+    width: 100%;
+    background: #dda;
+    overflow: auto;
+    font-size: 1.5em;
+}
+.aboutSec {
+    float: left;
+    height: calc(100% - 60px);
+    width: 60%;
+    background: #ddd;
+    overflow: auto;
+    font-size: 1.5em;
+    
+}
+.backstory, .mission, .vision {
+    width: 80%;
+    margin: 15px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+}
+.backstory {
+    margin-top: 50px;
+}
+.vision {
+    margin-bottom: 50px;
+}
+.backstory h2, .mission h2, .vision h2 {
+    margin-bottom: 10px;
+}
+.backstory p, .mission p, .vision p {
+    margin-bottom: 10px;
+}
+.teamSec {
+    float: right;
+    height: calc(100% - 60px);
+    width: 40%;
+    background: #ddd;
+    overflow: auto;
+}
+

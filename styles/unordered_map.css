@@ -41,7 +41,7 @@ h1 {
 .create {
     padding: 0 10px;
 }
-.push_back-div, .pop_back-div, .empty-div, .insert-div, .size-div, .swap-div, .clear-div, .erase-div {
+.push_back-div, .pop_back-div, .empty-div, .insert-div, .size-div, .swap-div, .clear-div, .erase-div, .find-div, .count-div {
     width: 250px;
     height: 75px;
     border: 1px solid black;
@@ -113,7 +113,7 @@ h1 {
     font-size: 2.5em;
     display: inline-block;
 }
-.push_back, .pop_back, .empty, .insert-c, .insert, .size, .swap-c, .create, .swap, .clear, .erase {
+.push_back, .pop_back, .empty, .insert-c, .insert, .size, .swap-c, .create, .swap, .clear, .erase, .find, .count {
     font-size: 2.5em;
     font-family: 'Inconsolata', monospace;
     color: #f4c20b; 
