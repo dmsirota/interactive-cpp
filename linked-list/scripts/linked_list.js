@@ -3,7 +3,6 @@ var displayMenu = function() {
     
 }
 
-//Last element should be null
 $('.create-btn').on('click', function(){
     $('.return').text('');
     if ($('.create-text').val() != '') {
@@ -84,7 +83,6 @@ $('.create-btn').on('click', function(){
             'f_list-index': 'null',
         })
         .text('NULL');
-        $('f_listNull-item').css('wdith','100px');
         $('.arrow:last').after($f_listNullItem);
     }
 });

@@ -122,7 +122,7 @@ h1 {
     line-height: 50px;
     text-align: center;
     font-family: sans-serif;
-    overflow: auto;
+    font-weight: bold;
     color: #112435;
     margin-bottom: 20px;
 }
