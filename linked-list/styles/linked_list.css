@@ -41,7 +41,7 @@ h1 {
 .create {
     padding: 0 10px;
 }
-.front-div, .assign-div {
+.front-div, .assign-div, .empty-div, .reverse-div, .sort-div, .unique-div {
     width: 250px;
     height: 75px;
     border: 1px solid black;
@@ -110,7 +110,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-.f_listNull-item {
+.f_listNull-item, .f_listHead-item {
     float: left;
     box-sizing: padding-box;
     width: 60px;
@@ -150,11 +150,11 @@ h1 {
 }
 
 /*'-c' is the comma for more than one parameter*/
-.create {
+.create, .assign-c {
     font-size: 2.5em;
     display: inline-block;
 }
-.front, .assign, .create {
+.front, .assign, .empty, .reverse, .sort, .unique, .assign-c, .create {
     font-size: 2.5em;
     font-family: 'Inconsolata', monospace;
     color: #f4c20b; 
@@ -167,20 +167,30 @@ h1 {
     top: 85%; left: 85%;
     transform: translate(-50%,-50%);
     border: 1px solid #f4c20b;
-    }
-.return-text {
+}
+.output-div {
+    height: 90px;
+    width: 175px;
+    position: absolute;
+    top: 85%; left: 15%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #f4c20b; 
+}
+.return-text, .output-text {
     box-sizing: border-box;
     font-size: 2em;
     color: white;
     border-bottom: 1px solid #f4c20b;
     background: #595B5E;
+    text-align: center;
 }
-.return {
+.return, .output {
     font-size: 4em;
     line-height: 70px;
     color: white;
     text-align: center;
 }
+
 textarea {
     width: 50px;
     margin-top: 5px;
