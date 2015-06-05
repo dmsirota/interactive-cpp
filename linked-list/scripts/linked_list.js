@@ -6,7 +6,7 @@ var displayMenu = function() {
 $('.create-btn').on('click', function(){
     $('.return').text('');
     $('.output').text('');
-    if ($('.create-text').val() != '') {
+    if ($('.create-text').val() !== '') {
         if (index === 0) {
             var $val = $('.create-text').val();
             $('.create-text').val('');
@@ -125,13 +125,13 @@ $('.create-btn').on('click', function(){
             }
             $('.forward_list-size-p').text(' ' + index);
         }
+        var $f_listNullItem = $('<li />', { 
+            class: 'f_listNull-item',
+            'f_list-index': 'null',
+        })
+        .text('NULL');
+        $('.arrow:last').after($f_listNullItem);
     }
-    var $f_listNullItem = $('<li />', { 
-        class: 'f_listNull-item',
-        'f_list-index': 'null',
-    })
-    .text('NULL');
-    $('.arrow:last').after($f_listNullItem);
 });
 
 $('.front-btn').on('click', function(){
@@ -154,38 +154,52 @@ $('.front-btn').on('click', function(){
 $('.assign-btn').on('click', function() {
     $('.return').text('');
     $('.output').text('');
-    if(index != 0) {
-        $('.f_list-item').remove();
-        $('.f_list').remove();
-        index = 0;
-        var $size = $('.assign-size').val();
-        var $val = $('.assign-val').val();
-        $('.assign-size').val('');
-        $('.assign-val').val('');
-        var $f_list = $('<ul />', { 
-            class: 'f_list',
-            //class attribute
-            'forward_list-size': $size,       
-        })
-        $('.forward_list-info').after($f_list);
-        for (var i = 0; i < $size; i++) {
-            if(i === 0) {
-                var $f_listHead = $('<li />', { 
-                    class: 'f_listHead-item',
-                    'f_list-index': 'head',
-                })
-                .text('HEAD');
-                $f_listHead.appendTo('.f_list');
-            }
-            var $f_listItem = $('<li />', { 
-                class: 'f_list-item' + ' ' + index,
-                'f_list-index': index,
+    if($('.assign-size').val() !== '' && $('.assign-val').val() !== '') {
+        if(index !== 0) {
+            $('.f_list-item').remove();
+            $('.f_list').remove();
+            index = 0;
+            var $size = $('.assign-size').val();
+            var $val = $('.assign-val').val();
+            $('.assign-size').val('');
+            $('.assign-val').val('');
+            var $f_list = $('<ul />', { 
+                class: 'f_list',
+                //class attribute
+                'forward_list-size': $size,       
             })
-            //f_listItem has text with randVal
-            .text($val);
-            $f_listItem.appendTo('.f_list');
-            index++;
-            if(i === 0) {
+            $('.forward_list-info').after($f_list);
+            for (var i = 0; i < $size; i++) {
+                if(i === 0) {
+                    var $f_listHead = $('<li />', { 
+                        class: 'f_listHead-item',
+                        'f_list-index': 'head',
+                    })
+                    .text('HEAD');
+                    $f_listHead.appendTo('.f_list');
+                }
+                var $f_listItem = $('<li />', { 
+                    class: 'f_list-item' + ' ' + index,
+                    'f_list-index': index,
+                })
+                //f_listItem has text with randVal
+                .text($val);
+                $f_listItem.appendTo('.f_list');
+                index++;
+                if(i === 0) {
+                    var $f_listArrow = $('<div />', {
+                        class: 'arrow',
+                    });
+                    var $f_listLine = $('<div />', {
+                        class: 'line',
+                    });
+                    var $f_listPoint = $('<div />', {
+                        class: 'point',
+                    });
+                    $f_listArrow.append($f_listLine);
+                    $f_listArrow.append($f_listPoint);
+                    $f_listHead.after($f_listArrow);
+                }
                 var $f_listArrow = $('<div />', {
                     class: 'arrow',
                 });
@@ -197,87 +211,75 @@ $('.assign-btn').on('click', function() {
                 });
                 $f_listArrow.append($f_listLine);
                 $f_listArrow.append($f_listPoint);
-                $f_listHead.after($f_listArrow);
+                $f_listItem.after($f_listArrow);
             }
-            var $f_listArrow = $('<div />', {
-                class: 'arrow',
-            });
-            var $f_listLine = $('<div />', {
-                class: 'line',
-            });
-            var $f_listPoint = $('<div />', {
-                class: 'point',
-            });
-            $f_listArrow.append($f_listLine);
-            $f_listArrow.append($f_listPoint);
-            $f_listItem.after($f_listArrow);
-        }
-    $('.forward_list-size-p').text(' ' + index);
-    }
-    else {
-        var $size = $('.assign-size').val();
-        var $val = $('.assign-val').val();
-        $('.assign-size').val('');
-        $('.assign-val').val('');
-        var $f_list = $('<ul />', { 
-            class: 'f_list',
-            //class attribute
-            'forward_list-size': $size,       
-        })
-        $('.forward_list-info').after($f_list);
-        for (var i = 0; i < $size; i++) {
-            if(i === 0) {
-                var $f_listHead = $('<li />', { 
-                    class: 'f_listHead-item',
-                    'f_list-index': 'head',
-                })
-                .text('HEAD');
-                $f_listHead.appendTo('.f_list');
-            }
-            var $f_listItem = $('<li />', { 
-                class: 'f_list-item' + ' ' + index,
-                'f_list-index': index,
-            })
-            //f_listItem has text with randVal
-            .text($val);
-            $f_listItem.appendTo('.f_list');
-            index++;
-            if(i === 0) {
-                var $f_listArrow = $('<div />', {
-                    class: 'arrow',
-                });
-                var $f_listLine = $('<div />', {
-                    class: 'line',
-                });
-                var $f_listPoint = $('<div />', {
-                    class: 'point',
-                });
-                $f_listArrow.append($f_listLine);
-                $f_listArrow.append($f_listPoint);
-                $f_listHead.after($f_listArrow);
-            }
-            var $f_listArrow = $('<div />', {
-                class: 'arrow',
-            });
-            var $f_listLine = $('<div />', {
-                class: 'line',
-            });
-            var $f_listPoint = $('<div />', {
-                class: 'point',
-            });
-            $f_listArrow.append($f_listLine);
-            $f_listArrow.append($f_listPoint);
-            $f_listItem.after($f_listArrow);
-        }
-        $('.forward_list-info').addClass('active');
         $('.forward_list-size-p').text(' ' + index);
+        }
+        else {
+            var $size = $('.assign-size').val();
+            var $val = $('.assign-val').val();
+            $('.assign-size').val('');
+            $('.assign-val').val('');
+            var $f_list = $('<ul />', { 
+                class: 'f_list',
+                //class attribute
+                'forward_list-size': $size,       
+            })
+            $('.forward_list-info').after($f_list);
+            for (var i = 0; i < $size; i++) {
+                if(i === 0) {
+                    var $f_listHead = $('<li />', { 
+                        class: 'f_listHead-item',
+                        'f_list-index': 'head',
+                    })
+                    .text('HEAD');
+                    $f_listHead.appendTo('.f_list');
+                }
+                var $f_listItem = $('<li />', { 
+                    class: 'f_list-item' + ' ' + index,
+                    'f_list-index': index,
+                })
+                //f_listItem has text with randVal
+                .text($val);
+                $f_listItem.appendTo('.f_list');
+                index++;
+                if(i === 0) {
+                    var $f_listArrow = $('<div />', {
+                        class: 'arrow',
+                    });
+                    var $f_listLine = $('<div />', {
+                        class: 'line',
+                    });
+                    var $f_listPoint = $('<div />', {
+                        class: 'point',
+                    });
+                    $f_listArrow.append($f_listLine);
+                    $f_listArrow.append($f_listPoint);
+                    $f_listHead.after($f_listArrow);
+                }
+                var $f_listArrow = $('<div />', {
+                    class: 'arrow',
+                });
+                var $f_listLine = $('<div />', {
+                    class: 'line',
+                });
+                var $f_listPoint = $('<div />', {
+                    class: 'point',
+                });
+                $f_listArrow.append($f_listLine);
+                $f_listArrow.append($f_listPoint);
+                $f_listItem.after($f_listArrow);
+            }
+            $('.forward_list-info').addClass('active');
+            $('.forward_list-size-p').text(' ' + index);
+        }
+        var $f_listNullItem = $('<li />', { 
+            class: 'f_listNull-item',
+            'f_list-index': 'null',
+        })
+        .text('NULL');
+        $('.arrow:last').after($f_listNullItem);
     }
-    var $f_listNullItem = $('<li />', { 
-        class: 'f_listNull-item',
-        'f_list-index': 'null',
-    })
-    .text('NULL');
-    $('.arrow:last').after($f_listNullItem);
 });
 
 $('.empty-btn').on('click', function() {
@@ -325,6 +327,8 @@ $('.sort-btn').on('click', function() {
         $('.output').text('No list!');
     }
     else if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() != 0) {
+        $('.return').text('');
+        $('.output').text('');
         var $size = parseInt($('.forward_list-size-p').text(),10) + 1;
         var $array = [];
         for(var i = 2; i <= $size; i++) {
@@ -356,6 +360,8 @@ $('.unique-btn').on('click', function() {
         $('.output').text('No list!');
     }
     else if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() != 0) {
+        $('.return').text('');
+        $('.output').text('');
         var $size = parseInt($('.forward_list-size-p').text(),10) + 1;
         var $array = [];
         for(var i = 2; i <= $size; i++) {
@@ -367,7 +373,7 @@ $('.unique-btn').on('click', function() {
                     return true;
                     break;
                 }
-                else if($array[i] !== $element && i === current_Index) { return false;}
+                else if($array[i] !== $element && i === current_Index) {return false;}
                 else {continue;}
             }
         }
