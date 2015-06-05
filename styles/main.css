@@ -8,14 +8,14 @@ html {
 body {
     height: 100%;
     font-size: 10px;
-    font-family: Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 .pageHeader {
     position: fixed;
     box-sizing: border-box;
     height: 60px;
     width: 100%;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid lightgray;
     background: white;
 }
 .mainNav {
@@ -30,8 +30,18 @@ body {
     margin: 0 5px 0 0;
     padding: 18px 25px;
 }
+.dropdown-menu {
+    cursor: pointer;
+}
+.dropdown {
+    clear: both;
+    float: right;
+    background: white;
+    visibility: hidden;
+}
 .dropdown li {
     float: none;
+    border-bottom: 2px solid lightgray;
 }
 .homeSec {
     height: calc(100% - 60px);
@@ -48,18 +58,43 @@ body {
     overflow: auto;
     font-size: 1.5em;
 }
+.contact-info {
+    float: left;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+}
+.contact-form {
+    float: right;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+}
+.contact-info-text {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+}
 .aboutSec {
     float: left;
     height: calc(100% - 60px);
-    width: 60%;
+    width: 100%;
+    background: #ddd;
+}
+.aboutSec-text {
+    float: left;
+    height: 100%;
+    width: 50%;
     background: #ddd;
     overflow: auto;
     font-size: 1.5em;
     
 }
+
 .backstory, .mission, .vision {
     width: 80%;
-    margin: 15px auto;
+    margin: 20px auto;
     padding: 20px;
     background: rgba(255, 255, 255, 0.7);
 }
@@ -69,17 +104,42 @@ body {
 .vision {
     margin-bottom: 50px;
 }
-.backstory h2, .mission h2, .vision h2 {
+.backstory h2, .mission h2, .vision h2, .contact-info-text h2 {
     margin-bottom: 10px;
 }
-.backstory p, .mission p, .vision p {
+.backstory p, .mission p, .vision p, .contact-info-text p {
     margin-bottom: 10px;
 }
 .teamSec {
     float: right;
-    height: calc(100% - 60px);
-    width: 40%;
+    height: 100%;
+    width: 50%;
     background: #ddd;
     overflow: auto;
+    font-size: 1.5em;
+}
+.teamSec-people {
+    width: 80%;
+    margin: 50px auto 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+}
+.section-break {
+    clear: both;
+    height: 60px;
+    width: 100%;
+    background: white;
 }
 
+footer {
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    background: #333;
+    color: #999;
+    font-size: 1.5em;
+    padding-left: 25px;
+}
+.active {
+    visibility: visible;
+}
