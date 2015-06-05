@@ -372,11 +372,13 @@ $('.unique-btn').on('click', function() {
             }
         }
         var $index_Remove = 3;
+        var $current_List_Size = $('.forward_list-size-p').html();
         for(var i = 0; i < $array.length; i++) {
             if(i !== 0) {
                 if(checkDuplicate($array[i],i) === true) {
                     $('.f_list .f_list-item:nth-of-type('+$index_Remove+')').remove();
                     $('.f_list .arrow:nth-of-type('+$index_Remove+')').remove();
+                    $('.forward_list-size-p').html(--$current_List_Size);
                 }
                 else {
                     $index_Remove++;
