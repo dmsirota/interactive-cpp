@@ -77,7 +77,6 @@ $('.create-btn').on('click', function(){
                 'forward_list-size': $val
             })
             $('.forward_list-info').after($f_list);
-            $('.forward_list-info').after($f_list);
             for (var i = 0; i < $val; i++) {
                 if(i === 0) {
                     var $f_listHead = $('<li />', { 
@@ -135,12 +134,11 @@ $('.create-btn').on('click', function(){
 });
 
 $('.front-btn').on('click', function(){
-    if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() != 0) {
-        $('.return').text($('.f_list li:first-child').html());
+    if($('.forward_list-info').hasClass('active') === true && index !== 0) {
+        $('.return').text($('.f_list li:nth-of-type(2)').html());
         $('.output').text('No output');
     }
-    else if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() == 0){
-        
+    else if($('.forward_list-info').hasClass('active') === true && index === 0){
         $('.return').text('Empty!');
         $('.output').text('Empty!');
     }
@@ -283,11 +281,11 @@ $('.assign-btn').on('click', function() {
 });
 
 $('.empty-btn').on('click', function() {
-    if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() == 0) {
+    if($('.forward_list-info').hasClass('active') === true && index === 0) {
         $('.return').text('true');
         $('.output').text('No output');
     }
-    else if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() != 0){
+    else if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() !== 0){
         $('.return').text('false');
         $('.output').text('No output');
     }
@@ -298,38 +296,38 @@ $('.empty-btn').on('click', function() {
 });
 
 $('.reverse-btn').on('click', function() {
-    if($('.forward_list-info').hasClass('active') !== true) {
-        $('.return').text('No list!');
-        $('.output').text('No list!');
+    if($('.forward_list-info').hasClass('active') !== true && index === 0) {
+        $('.return').text('Empty!');
+        $('.output').text('Empty!');
     }
-    else if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() != 0) {
+    else if($('.forward_list-info').hasClass('active') === true && index !== 0) {
         $('.return').text('');
         $('.output').text('');
-        var $size = Math.floor((parseInt($('.forward_list-size-p').text(),10))/2) + 1;
+        var $size = Math.floor(index/2) + 1;
         for(var i = 2; i <= $size; i++ ) {
             /*$('.f_list .f_list-item:nth-of-type('+i+')');*/ /*Note: This will result in undefined for the first index because the head                                                                   includes .f_list-item in the class name. So index should start at 2.*/
-            var $index_1 = $('.f_list .f_list-item:nth-of-type('+i+')').html();
-            var $index_2 = $('.f_list .f_list-item:nth-last-of-type('+i+')').html();
-            $('.f_list .f_list-item:nth-of-type('+i+')').html($index_2);
-            $('.f_list .f_list-item:nth-last-of-type('+i+')').html($index_1);
+            var $index_from_front = $('.f_list .f_list-item:nth-of-type('+i+')').html();
+            var $index_from_back = $('.f_list .f_list-item:nth-last-of-type('+i+')').html();
+            $('.f_list .f_list-item:nth-of-type('+i+')').html($index_from_back);
+            $('.f_list .f_list-item:nth-last-of-type('+i+')').html($index_from_front);
             
         }   
     }
     else {
-        $('.return').text('Empty!');
-        $('.output').text('Empty!');
+        $('.return').text('No list!');
+        $('.output').text('No list!');
     }
 });
 
 $('.sort-btn').on('click', function() {
-    if($('.forward_list-info').hasClass('active') !== true) {
-        $('.return').text('No list!');
-        $('.output').text('No list!');
+    if($('.forward_list-info').hasClass('active') === true && index === 0) {
+        $('.return').text('Empty!');
+        $('.output').text('Empty!');
     }
-    else if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() != 0) {
+    else if($('.forward_list-info').hasClass('active') === true && index !== 0) {
         $('.return').text('');
         $('.output').text('');
-        var $size = parseInt($('.forward_list-size-p').text(),10) + 1;
+        var $size = index + 1;
         var $array = [];
         for(var i = 2; i <= $size; i++) {
             $array.push($('.f_list .f_list-item:nth-of-type('+i+')').html());
@@ -349,20 +347,20 @@ $('.sort-btn').on('click', function() {
         }
     }
     else {
-        $('.return').text('Empty!');
-        $('.output').text('Empty!'); 
+        $('.return').text('No list!');
+        $('.output').text('No list!'); 
     }
 });
 
 $('.unique-btn').on('click', function() {
-    if($('.forward_list-info').hasClass('active') !== true) {
-        $('.return').text('No list!');
-        $('.output').text('No list!');
+    if($('.forward_list-info').hasClass('active') === true && index === 0) {
+        $('.return').text('Empty!');
+        $('.output').text('Empty!');
     }
-    else if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() != 0) {
+    else if($('.forward_list-info').hasClass('active') === true && index !== 0) {
         $('.return').text('');
         $('.output').text('');
-        var $size = parseInt($('.forward_list-size-p').text(),10) + 1;
+        var $size = index + 1;
         var $array = [];
         for(var i = 2; i <= $size; i++) {
             $array.push($('.f_list .f_list-item:nth-of-type('+i+')').html());
@@ -378,7 +376,7 @@ $('.unique-btn').on('click', function() {
             }
         }
         var $index_Remove = 3;
-        var $current_List_Size = $('.forward_list-size-p').html();
+        var $current_List_Size = index;
         for(var i = 0; i < $array.length; i++) {
             if(i !== 0) {
                 if(checkDuplicate($array[i],i) === true) {
@@ -393,7 +391,7 @@ $('.unique-btn').on('click', function() {
         }
     }
     else {
-        $('.return').text('Empty!');
-        $('.output').text('Empty!'); 
+        $('.return').text('No list!');
+        $('.output').text('No list!'); 
     }
 });
