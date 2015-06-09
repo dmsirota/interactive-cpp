@@ -24,16 +24,25 @@ $('.create-btn').on('click', function(){
                         'f_list-index': 'head',
                     })
                     .text('HEAD');
-                    $f_listHead.appendTo('.f_list');
+                    $f_listHead.appendTo($f_list);
                 }
-                var randVal = 1 + Math.floor(Math.random() * 9);
+                var $randVal = 1 + Math.floor(Math.random() * 9);
                 var $f_listItem = $('<li />', { 
                     class: 'f_list-item' + ' ' + index,
                     'f_list-index': index,
                 })
-                //f_listItem has text with randVal
-                .text(randVal);
-                $f_listItem.appendTo('.f_list');
+                $f_listItem.appendTo($f_list);
+                var $f_listData = $('<div />', {
+                    class: 'f_list-item-data',
+                })
+                .text($randVal);
+                $f_listData.appendTo($f_listItem);
+                
+                var $f_listPointer = $('<div />', {
+                    class: 'f_list-item-pointer',
+                })
+                .text('next');
+                $f_listData.after($f_listPointer);
                 index++;
                 if(i === 0) {
                     var $f_listArrow = $('<div />', {
@@ -84,16 +93,24 @@ $('.create-btn').on('click', function(){
                         'f_list-index': 'head',
                     })
                     .text('HEAD');
-                    $f_listHead.appendTo('.f_list');
+                    $f_listHead.appendTo($f_list);
                 }
-                var randVal = 1 + Math.floor(Math.random() * 9);
+                var $randVal = 1 + Math.floor(Math.random() * 9);
                 var $f_listItem = $('<li />', { 
                     class: 'f_list-item' + ' ' + index,
                     'f_list-index': index,
                 })
-                //f_listItem has text with randVal
-                .text(randVal);
-                $f_listItem.appendTo('.f_list');
+                $f_listItem.appendTo($f_list);
+                var $f_listData = $('<div />', {
+                    class: 'f_list-item-data',
+                })
+                .text($randVal);
+                $f_listData.appendTo($f_listItem);
+                var $f_listPointer = $('<div />', {
+                    class: 'f_list-item-pointer',
+                })
+                .text('next');
+                $f_listData.after($f_listPointer);
                 index++;
                 if(i === 0) {
                     var $f_listArrow = $('<div />', {
@@ -135,7 +152,7 @@ $('.create-btn').on('click', function(){
 
 $('.front-btn').on('click', function(){
     if($('.forward_list-info').hasClass('active') === true && index !== 0) {
-        $('.return').text($('.f_list li:nth-of-type(2)').html());
+        $('.return').text($('.f_list li:nth-of-type(2) .f_list-item-data').html());
         $('.output').text('No output');
     }
     else if($('.forward_list-info').hasClass('active') === true && index === 0){
@@ -174,15 +191,24 @@ $('.assign-btn').on('click', function() {
                         'f_list-index': 'head',
                     })
                     .text('HEAD');
-                    $f_listHead.appendTo('.f_list');
+                    $f_listHead.appendTo($f_list);
                 }
                 var $f_listItem = $('<li />', { 
                     class: 'f_list-item' + ' ' + index,
                     'f_list-index': index,
                 })
-                //f_listItem has text with randVal
+                $f_listItem.appendTo($f_list);
+                var $f_listData = $('<div />', {
+                    class: 'f_list-item-data',
+                })
                 .text($val);
-                $f_listItem.appendTo('.f_list');
+                $f_listData.appendTo($f_listItem);
+                
+                var $f_listPointer = $('<div />', {
+                    class: 'f_list-item-pointer',
+                })
+                .text('next');
+                $f_listData.after($f_listPointer);
                 index++;
                 if(i === 0) {
                     var $f_listArrow = $('<div />', {
@@ -231,15 +257,24 @@ $('.assign-btn').on('click', function() {
                         'f_list-index': 'head',
                     })
                     .text('HEAD');
-                    $f_listHead.appendTo('.f_list');
+                    $f_listHead.appendTo($f_list);
                 }
                 var $f_listItem = $('<li />', { 
                     class: 'f_list-item' + ' ' + index,
                     'f_list-index': index,
                 })
-                //f_listItem has text with randVal
+                $f_listItem.appendTo($f_list);
+                var $f_listData = $('<div />', {
+                    class: 'f_list-item-data',
+                })
                 .text($val);
-                $f_listItem.appendTo('.f_list');
+                $f_listData.appendTo($f_listItem);
+                
+                var $f_listPointer = $('<div />', {
+                    class: 'f_list-item-pointer',
+                })
+                .text('next');
+                $f_listData.after($f_listPointer);
                 index++;
                 if(i === 0) {
                     var $f_listArrow = $('<div />', {
@@ -285,7 +320,7 @@ $('.empty-btn').on('click', function() {
         $('.return').text('true');
         $('.output').text('No output');
     }
-    else if($('.forward_list-info').hasClass('active') === true && $('.forward_list-size-p').html() !== 0){
+    else if($('.forward_list-info').hasClass('active') === true && index !== 0){
         $('.return').text('false');
         $('.output').text('No output');
     }
@@ -306,10 +341,10 @@ $('.reverse-btn').on('click', function() {
         var $size = Math.floor(index/2) + 1;
         for(var i = 2; i <= $size; i++ ) {
             /*$('.f_list .f_list-item:nth-of-type('+i+')');*/ /*Note: This will result in undefined for the first index because the head                                                                   includes .f_list-item in the class name. So index should start at 2.*/
-            var $index_from_front = $('.f_list .f_list-item:nth-of-type('+i+')').html();
-            var $index_from_back = $('.f_list .f_list-item:nth-last-of-type('+i+')').html();
-            $('.f_list .f_list-item:nth-of-type('+i+')').html($index_from_back);
-            $('.f_list .f_list-item:nth-last-of-type('+i+')').html($index_from_front);
+            var $index_from_front = $('.f_list .f_list-item:nth-of-type('+i+')'+' .f_list-item-data').html();
+            var $index_from_back = $('.f_list .f_list-item:nth-last-of-type('+i+')'+' .f_list-item-data').html();
+            $('.f_list .f_list-item:nth-of-type('+i+')'+' .f_list-item-data').html($index_from_back);
+            $('.f_list .f_list-item:nth-last-of-type('+i+')'+' .f_list-item-data').html($index_from_front);
             
         }   
     }
@@ -330,7 +365,7 @@ $('.sort-btn').on('click', function() {
         var $size = index + 1;
         var $array = [];
         for(var i = 2; i <= $size; i++) {
-            $array.push($('.f_list .f_list-item:nth-of-type('+i+')').html());
+            $array.push($('.f_list .f_list-item:nth-of-type('+i+')'+' .f_list-item-data').html());
         }
         /*Default sort (operator is "<")*/
         if ($('.sort-text').val() == '') {
@@ -343,7 +378,7 @@ $('.sort-btn').on('click', function() {
         }
         /*More pred conditions later here*/
         for(var i = 2; i <= $size; i++) {
-            $('.f_list .f_list-item:nth-of-type('+i+')').html($array[i-2]);
+            $('.f_list .f_list-item:nth-of-type('+i+')'+ ' .f_list-item-data').html($array[i-2]);
         }
     }
     else {
@@ -363,7 +398,7 @@ $('.unique-btn').on('click', function() {
         var $size = index + 1;
         var $array = [];
         for(var i = 2; i <= $size; i++) {
-            $array.push($('.f_list .f_list-item:nth-of-type('+i+')').html());
+            $array.push($('.f_list .f_list-item:nth-of-type('+i+')'+' .f_list-item-data').html());
         }
         function checkDuplicate($element,current_Index) {
             for (var i = 0; i < current_Index; i++) {

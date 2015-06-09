@@ -85,7 +85,7 @@ h1 {
 }
 .f_list {
     display: inline-block;
-    width: 90%;
+    width: 95%;
     overflow: hidden;
     list-style: none;
     position: absolute;
@@ -96,27 +96,35 @@ h1 {
 .f_list-item, .f_listNull-item, .f_listHead-item {
     float: left;
     box-sizing: padding-box;
+    width: 64px;
     height: 50px;
-    padding: 5px;
     line-height: 50px;
     text-align: center;
     font-family: sans-serif;
     overflow: auto;
     color: #112435;
-    margin-bottom: 20px; 
+    margin-bottom: 10px; 
+    font-size: 2em;
 }
 .f_list-item {
-    width: 50px;
     border: 5px solid #24E829;
     background: rgba(36,232,41,0.5);
-    font-size: 3em;
 }
 .f_listNull-item, .f_listHead-item {
-    width: 60px;
     border: 5px solid #127414;
     background: rgba(18,116,20,0.5);
-    font-size: 2em;
     font-weight: bold;
+}
+.f_list-item-data {
+    float: inherit;
+    width: 20px;
+    background: rgb(74, 139, 75);
+    border-right: 2px solid #24E829;
+}
+.f_list-item-pointer {
+    float: right;
+    width: 42px;
+    background: rgb(92, 151, 93);
 }
 /*Linked-list arrow*/
 .arrow {
