@@ -41,7 +41,7 @@ $('.create-btn').on('click', function(){
                 var $f_listPointer = $('<div />', {
                     class: 'f_list-item-pointer',
                 })
-                .text('next');
+                .text('*next');
                 $f_listData.after($f_listPointer);
                 index++;
                 if(i === 0) {

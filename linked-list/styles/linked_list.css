@@ -96,7 +96,6 @@ h1 {
 .f_list-item, .f_listNull-item, .f_listHead-item {
     float: left;
     box-sizing: padding-box;
-    width: 64px;
     height: 50px;
     line-height: 50px;
     text-align: center;
@@ -107,10 +106,12 @@ h1 {
     font-size: 2em;
 }
 .f_list-item {
+    width: 74.5px;
     border: 5px solid #24E829;
     background: rgba(36,232,41,0.5);
 }
 .f_listNull-item, .f_listHead-item {
+    width: 64px;
     border: 5px solid #127414;
     background: rgba(18,116,20,0.5);
     font-weight: bold;
@@ -123,7 +124,7 @@ h1 {
 }
 .f_list-item-pointer {
     float: right;
-    width: 42px;
+    width: 52.5px;
     background: rgb(92, 151, 93);
 }
 /*Linked-list arrow*/
