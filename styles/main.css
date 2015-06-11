@@ -53,7 +53,8 @@ body {
 }
 .contactSec {
     height: calc(100% - 60px);
-    width: 100%;
+    width: calc(100% - 120px);
+    margin: auto;
     background: #dda;
     overflow: auto;
     font-size: 1.5em;
