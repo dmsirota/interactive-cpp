@@ -562,7 +562,7 @@ $('.emplace_after_iterator-position-list li').on('click', function() {
 $('.emplace_after-btn').on('click', function() {
     var $position = $('.emplace_after-position').val();
     var $val = $('.emplace_after-val').val();
-    if($('.forward_list-info').hasClass('active') === true) {
+    if($('.forward_list-info').hasClass('active') === true && ($position !== 'Choose')) {
         if($position === 'f_list.begin()' && index === 0 || $position === '/') {
             $('.return-div,.output-div').css('width','200px').css('height','100px');
             $('.return,.output').css('font-size','1.5em').css('line-height','30px').text('Runtime Error! Empty list- undefined behavior!');
@@ -696,13 +696,11 @@ $('.emplace_after-btn').on('click', function() {
                 $('.f_list .f_list-item:nth-of-type('+i+')').attr('f_list-index',$newIndex.toString());
             }
         }
-        /*Forward Lists do not support arithmetic operations on iterators*/
-//        else if($position.test('f_list.begin()+') === true || $position.test('+f_list.begin()') === true ||                                  $position.test('+f_list.before_end()') || $position.test('f_list.before()') {
-//            
-//        }
-//    }
-//    else {
-//        $('.return,.output').text('No list!');
-//    }
+    }
+    else if($('.forward_list-info').hasClass('active') === true && ($position === 'Choose')) {
+        $('.return,.output').text('No iterator');
+    }
+    else {
+        $('.return,.output').text('No list!');
     }
 });
