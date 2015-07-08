@@ -430,3 +430,279 @@ $('.unique-btn').on('click', function() {
         $('.output').text('No list!'); 
     }
 });
+
+$('.emplace_front-btn').on('click', function() {
+    /*$('.return').text('');
+    $('.output').text('');*/
+    var $val = $('.emplace_front-text').val();
+    if($('.forward_list-info').hasClass('active') === true && index === 0) {
+        var $f_listHead = $('<li />', { 
+            class: 'f_listHead-item',
+            'f_list-index': 'head',
+        })
+        .text('HEAD');
+        $f_listHead.appendTo('.f_list');
+        var $f_listItem = $('<li />', { 
+            class: 'f_list-item' + ' ' + index,
+            'f_list-index': index,
+        })
+        $f_listItem.appendTo('.f_list');
+        var $f_listData = $('<div />', {
+            class: 'f_list-item-data',
+        })
+        .text($val);
+        $f_listData.appendTo($f_listItem);
+        var $f_listPointer = $('<div />', {
+            class: 'f_list-item-pointer',
+        })
+        .text('*next');
+        $f_listData.after($f_listPointer);
+        var $f_listArrow = $('<div />', {
+            class: 'arrow',
+        });
+        var $f_listLine = $('<div />', {
+            class: 'line',
+        });
+        var $f_listPoint = $('<div />', {
+            class: 'point',
+        });
+        $f_listArrow.append($f_listLine);
+        $f_listArrow.append($f_listPoint);
+        $f_listHead.after($f_listArrow);
+        var $f_listArrow = $('<div />', {
+            class: 'arrow',
+        });
+        var $f_listLine = $('<div />', {
+            class: 'line',
+        });
+        var $f_listPoint = $('<div />', {
+            class: 'point',
+        });
+        $f_listArrow.append($f_listLine);
+        $f_listArrow.append($f_listPoint);
+        $f_listItem.after($f_listArrow);
+        index++;
+        $('.forward_list-size-p').text(' ' + index);
+        var $f_listNullItem = $('<li />', { 
+            class: 'f_listNull-item',
+            'f_list-index': 'null',
+        })
+        .text('NULL');
+        $('.arrow:last').after($f_listNullItem);
+    }
+    else if($('.forward_list-info').hasClass('active') === true && index !== 0) {
+        var $f_listItem = $('<li />', { 
+            class: 'f_list-item' + ' ' + 0,
+            'f_list-index': 0,
+        })
+        $f_listItem.insertAfter('.f_list .arrow:first');
+        var $f_listData = $('<div />', {
+            class: 'f_list-item-data',
+        })
+        .text($val);
+        $f_listData.appendTo($f_listItem);
+        var $f_listPointer = $('<div />', {
+            class: 'f_list-item-pointer',
+        })
+        .text('*next');
+        $f_listData.after($f_listPointer);
+        var $f_listArrow = $('<div />', {
+            class: 'arrow',
+        });
+        var $f_listLine = $('<div />', {
+            class: 'line',
+        });
+        var $f_listPoint = $('<div />', {
+            class: 'point',
+        });
+        $f_listArrow.append($f_listLine);
+        $f_listArrow.append($f_listPoint);
+        $f_listItem.after($f_listArrow);
+        index++;
+        $('.forward_list-size-p').text(' ' + index);
+        var $newIndex = 0;
+        var $size = index + 1;
+        for(var i= 3; i <= $size; i++) {
+            $('.f_list .f_list-item:nth-of-type('+i+')').removeClass($newIndex.toString()).addClass((++$newIndex).toString());
+            $('.f_list .f_list-item:nth-of-type('+i+')').attr('f_list-index',$newIndex.toString());
+        }
+    }
+    else {
+        $('.return').text('No list!');
+        $('.output').text('No list!'); 
+    }
+});
+
+$('.pop_front-btn').on('click', function() {
+    if($('.forward_list-info').hasClass('active') === true && index === 0) {
+        $('.return').text('Empty!');
+        $('.output').text('Empty!');
+    }
+    else if($('.forward_list-info').hasClass('active') === true && index !== 0) {
+        $('.return').text('');
+        $('.output').text('');
+        $('.f_list .f_list-item:nth-of-type(2)').remove();
+        $('.f_list .arrow:nth-of-type(2)').remove();
+        $('.forward_list-size-p').html(--index);
+    }
+    else {
+        $('.return,.output').text('No list!');
+    }
+});
+
+$('.emplace_after-iterator-btn').on('click', function() {
+    $('.emplace_after_iterator-position-list').css('visibility','visible');
+});
+
+$('.emplace_after_iterator-position-list li').on('click', function() {
+    var $position = $(this).text();
+    $('.emplace_after-position').attr('value',$position);
+});
+
+$('.emplace_after-btn').on('click', function() {
+    var $position = $('.emplace_after-position').val();
+    var $val = $('.emplace_after-val').val();
+    if($('.forward_list-info').hasClass('active') === true) {
+        if($position === 'f_list.begin()' && index === 0 || $position === '/') {
+            $('.return-div,.output-div').css('width','200px').css('height','100px');
+            $('.return,.output').css('font-size','1.5em').css('line-height','30px').text('Runtime Error! Empty list- undefined behavior!');
+        }
+        else if($position === 'f_list.begin()' && index !== 0) {
+            var $f_listItem = $('<li />', { 
+                class: 'f_list-item' + ' ' + 1,
+                'f_list-index': 1,
+            })
+            $f_listItem.insertAfter('.f_list .arrow:nth-of-type(2)');
+            var $f_listData = $('<div />', {
+                class: 'f_list-item-data',
+            })
+            .text($val);
+            $f_listData.appendTo($f_listItem);
+            var $f_listPointer = $('<div />', {
+                class: 'f_list-item-pointer',
+            })
+            .text('*next');
+            $f_listData.after($f_listPointer);
+            var $f_listArrow = $('<div />', {
+                class: 'arrow',
+            });
+            var $f_listLine = $('<div />', {
+                class: 'line',
+            });
+            var $f_listPoint = $('<div />', {
+                class: 'point',
+            });
+            $f_listArrow.append($f_listLine);
+            $f_listArrow.append($f_listPoint);
+            $f_listItem.after($f_listArrow);
+            index++;
+            $('.forward_list-size-p').text(' ' + index);
+            var $newIndex = 1;
+            var $size = index + 1;
+            for(var i= 4; i <= $size; i++) {
+                $('.f_list .f_list-item:nth-of-type('+i+')').removeClass($newIndex.toString()).addClass((++$newIndex).toString());
+                $('.f_list .f_list-item:nth-of-type('+i+')').attr('f_list-index',$newIndex.toString());
+            }
+        }
+        else if($position === 'f_list.before_begin()' && index === 0) {
+            var $f_listHead = $('<li />', { 
+            class: 'f_listHead-item',
+            'f_list-index': 'head',
+            })
+            .text('HEAD');
+            $f_listHead.appendTo('.f_list');
+            var $f_listItem = $('<li />', { 
+                class: 'f_list-item' + ' ' + index,
+                'f_list-index': index,
+            })
+            $f_listItem.appendTo('.f_list');
+            var $f_listData = $('<div />', {
+                class: 'f_list-item-data',
+            })
+            .text($val);
+            $f_listData.appendTo($f_listItem);
+            var $f_listPointer = $('<div />', {
+                class: 'f_list-item-pointer',
+            })
+            .text('*next');
+            $f_listData.after($f_listPointer);
+            var $f_listArrow = $('<div />', {
+                class: 'arrow',
+            });
+            var $f_listLine = $('<div />', {
+                class: 'line',
+            });
+            var $f_listPoint = $('<div />', {
+                class: 'point',
+            });
+            $f_listArrow.append($f_listLine);
+            $f_listArrow.append($f_listPoint);
+            $f_listHead.after($f_listArrow);
+            var $f_listArrow = $('<div />', {
+                class: 'arrow',
+            });
+            var $f_listLine = $('<div />', {
+                class: 'line',
+            });
+            var $f_listPoint = $('<div />', {
+                class: 'point',
+            });
+            $f_listArrow.append($f_listLine);
+            $f_listArrow.append($f_listPoint);
+            $f_listItem.after($f_listArrow);
+            index++;
+            $('.forward_list-size-p').text(' ' + index);
+            var $f_listNullItem = $('<li />', { 
+                class: 'f_listNull-item',
+                'f_list-index': 'null',
+            })
+            .text('NULL');
+            $('.arrow:last').after($f_listNullItem);
+        }
+        else if($position === 'f_list.before_begin()' && index !== 0) {
+            var $f_listItem = $('<li />', { 
+                class: 'f_list-item' + ' ' + 0,
+                'f_list-index': 0,
+            })
+            $f_listItem.insertAfter('.f_list .arrow:first');
+            var $f_listData = $('<div />', {
+                class: 'f_list-item-data',
+            })
+            .text($val);
+            $f_listData.appendTo($f_listItem);
+            var $f_listPointer = $('<div />', {
+                class: 'f_list-item-pointer',
+            })
+            .text('*next');
+            $f_listData.after($f_listPointer);
+            var $f_listArrow = $('<div />', {
+                class: 'arrow',
+            });
+            var $f_listLine = $('<div />', {
+                class: 'line',
+            });
+            var $f_listPoint = $('<div />', {
+                class: 'point',
+            });
+            $f_listArrow.append($f_listLine);
+            $f_listArrow.append($f_listPoint);
+            $f_listItem.after($f_listArrow);
+            index++;
+            $('.forward_list-size-p').text(' ' + index);
+            var $newIndex = 0;
+            var $size = index + 1;
+            for(var i= 3; i <= $size; i++) {
+                $('.f_list .f_list-item:nth-of-type('+i+')').removeClass($newIndex.toString()).addClass((++$newIndex).toString());
+                $('.f_list .f_list-item:nth-of-type('+i+')').attr('f_list-index',$newIndex.toString());
+            }
+        }
+        /*Forward Lists do not support arithmetic operations on iterators*/
+//        else if($position.test('f_list.begin()+') === true || $position.test('+f_list.begin()') === true ||                                  $position.test('+f_list.before_end()') || $position.test('f_list.before()') {
+//            
+//        }
+//    }
+//    else {
+//        $('.return,.output').text('No list!');
+//    }
+    }
+});

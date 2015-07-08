@@ -41,9 +41,9 @@ h1 {
 .create {
     padding: 0 10px;
 }
-.front-div, .assign-div, .empty-div, .reverse-div, .sort-div, .unique-div {
+.emplace_after-div, .front-div, .assign-div, .empty-div, .reverse-div, .sort-div, .unique-div, .emplace_front-div, .pop_front-div {
     width: 250px;
-    height: 75px;
+    height: 90px;
     border: 1px solid black;
     margin: 25px;
     line-height: 37px;
@@ -51,12 +51,20 @@ h1 {
     background: #214667;
     box-shadow: 1px 1px 5px #ccc inset, 2px 2px 5px #000;
 }
+/*Methods with iterator paramters*/
+.emplace_after-div {
+    width: 500px;
+}
 .container-container {
+    clear: both;
     float: right;
-    position: relative;
-    width: 50%;
-    height: 500px;
+    position: absolute;
+    left: 50%;
+    width: 48%;
+    min-height: 500px;
+    height: 100%;
     margin-top: 25px;
+    margin-bottom: 25px;
     box-sizing: border-box;
     border: 1px solid #f4c20b;
     background: #214667;
@@ -149,11 +157,11 @@ h1 {
     float: left;
 }
 /*'-c' is the comma for more than one parameter*/
-.create, .assign-c {
+.create, .assign-c, .emplace_after-c {
     font-size: 2.5em;
     display: inline-block;
 }
-.front, .assign, .empty, .reverse, .sort, .unique, .assign-c, .create {
+.front, .assign, .empty, .reverse, .sort, .unique, .emplace_front, .pop_front, .emplace_after, .assign-c, .emplace_after-c, .create {
     font-size: 2.5em;
     font-family: 'Inconsolata', monospace;
     color: #f4c20b; 
@@ -162,15 +170,15 @@ h1 {
     height: 90px;
     width: 175px;
     position: absolute;
-    top: 85%; 
+    top: 85%;
     transform: translate(-50%,-50%);
     border: 1px solid #f4c20b;
 }
 .return-div {
-    left: 85%;
+    left: 80%;
 }
 .output-div {
-    left: 15%;
+    left: 20%;
 }
 .return-text, .output-text {
     box-sizing: border-box;
@@ -186,8 +194,7 @@ h1 {
     color: white;
     text-align: center;
 }
-
-textarea {
+.textarea {
     width: 50px;
     margin-top: 5px;
     background: #275178;
@@ -195,6 +202,43 @@ textarea {
     resize: none;
     color: white;
 }
+
+/*Iterators*/
+.iterator-input {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+    width: 200px;
+}
+.arrow-down {
+	width: 0; 
+	height: 0;
+	border-left: 18px solid transparent;
+	border-right: 18px solid transparent;
+	border-top: 18px solid grey;
+}
+/*Drop-down menu*/
+.emplace_after_iterator-position-list {
+    visibility: hidden;
+    position: absolute;
+    list-style-type: none;
+    border: 1px solid white;
+    margin-left: 40px;
+    margin-top: -20px;
+    width: 202px;
+    z-index: 2;
+    background-color: aqua;
+}
+.iterator {
+    padding: 1px;
+}
+.iterator > a {
+    text-decoration: none;
+}
+.iterator:hover {
+    background-color: red;
+}
+
 button {
     background: #f4c20b;
     font-size: 1.5em;
