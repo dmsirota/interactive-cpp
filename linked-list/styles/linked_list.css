@@ -204,11 +204,15 @@ h1 {
 }
 
 /*Iterators*/
-.iterator-input {
+.iterator-input,.parameter-choice-input {
     display: inline-block;
     vertical-align: top;
     margin-top: 10px;
     width: 200px;
+}
+/*Parameter Choice*/
+.parameter-choice-input {
+    width: 180px;
 }
 .arrow-down {
 	width: 0; 
@@ -217,26 +221,37 @@ h1 {
 	border-right: 18px solid transparent;
 	border-top: 18px solid grey;
 }
-/*Drop-down menu*/
-.emplace_after_iterator-position-list {
+/*Drop-down menu for iterators*/
+.emplace_after_iterator-position-list,.assign-parameter-choice-list {
     visibility: hidden;
     position: absolute;
     list-style-type: none;
     border: 1px solid white;
     margin-left: 40px;
-    margin-top: -20px;
+    margin-top: -21px;
     width: 202px;
     z-index: 2;
     background-color: aqua;
 }
-.iterator {
+.assign-parameter-choice-list {
+    margin-left: 12px;
+    margin-top: -6px;
+    width: 182px;
+}
+.iterator,.parameter-choice {
     padding: 1px;
 }
-.iterator > a {
+.iterator > a,.parameter-choice > a {
     text-decoration: none;
 }
-.iterator:hover {
+.iterator:hover,.parameter-choice:hover {
     background-color: red;
+}
+
+/*Different Parameter Field List*/
+/*Assign*/
+.fill,.range,.initializer-list {
+    display: none;
 }
 
 button {

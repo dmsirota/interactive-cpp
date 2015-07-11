@@ -550,13 +550,17 @@ $('.pop_front-btn').on('click', function() {
     }
 });
 
-$('.emplace_after-iterator-btn').on('click', function() {
-    $('.emplace_after_iterator-position-list').css('visibility','visible');
+$('body').on('click', function(e) {
+    if((!$(e.target).hasClass('emplace_after_iterator-position-list') && !$(e.target).hasClass('arrow-down') && $('.emplace_after_iterator-position-list').css('visibility') === 'visible')) {
+        $('.emplace_after_iterator-position-list').css('visibility','hidden');
+    }
+    else if(($(e.target).hasClass('arrow-down') && $('.emplace_after_iterator-position-list').css('visibility') === 'visible')) {$('.emplace_after_iterator-position-list').css('visibility','hidden');}
+    else if($(e.target).hasClass('arrow-down') && $('.emplace_after_iterator-position-list').css('visibility') === 'hidden') {$('.emplace_after_iterator-position-list').css('visibility','visible');}
 });
 
 $('.emplace_after_iterator-position-list li').on('click', function() {
-    var $position = $(this).text();
-    $('.emplace_after-position').attr('value',$position);
+    $('.emplace_after-position').attr('value',$(this).text());
+    $('.emplace_after_iterator-position-list').css('visibility','hidden');
 });
 
 $('.emplace_after-btn').on('click', function() {
@@ -703,4 +707,14 @@ $('.emplace_after-btn').on('click', function() {
     else {
         $('.return,.output').text('No list!');
     }
+});
+
+$('.assign-parameter-choice-btn').on('click', function() {
+    $('.assign-parameter-choice-list').css('visibility','visible');
+});
+
+$('.assign-parameter-choice-list li').on('click', function() {
+    $('.'+$(this).text()).css('display','inline');
+    $('.assign-parameter-choice-div').hide();
+    $('.assign-parameter-choice-list').css('visibility','hidden');
 });

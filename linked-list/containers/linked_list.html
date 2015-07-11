@@ -44,10 +44,38 @@
         <!--Fill-->
         <div class="assign-div left">
             <p class="assign">assign&#40;&#41;</p>
-            <textarea class="textarea assign-size"></textarea>
-            <p class="assign-c">,</p>
-            <textarea class="textarea assign-val"></textarea>
-            <button class="assign-btn">Assign!</button>
+            <div class="assign-parameter-choice-div">
+                <input class="parameter-choice-input assign-parameter" type="text" name="Parameters" value="Choose" readonly>
+                <button class="parameter_choice-btn assign-parameter-choice-btn"><div class="arrow-down"></div></button>
+                <ul class="assign-parameter-choice-list">
+                    <li class="parameter-choice assign-choice_1"><a href="#">fill</a></li>
+                    <li class="parameter-choice assign-choice_2"><a href="#">range</a></li>
+                    <li class="parameter-choice assign-choice_3"><a href="#">initializer-list</a></li>
+                </ul>
+            </div>
+            <div class="fill">
+                <textarea class="textarea assign-size"></textarea>
+                <p class="assign-c">,</p>
+                <textarea class="textarea assign-val"></textarea>
+                <button class="assign-btn">Assign!</button>
+            </div>
+            <div class="range">
+                <input class="iterator-input assign-position-first" type="text" name="Iterator" value="Choose" readonly>
+                <button class="iterator-btn assign-iterator-first-btn"><div class="arrow-down"></div></button>
+                <ul class="assign_iterator-first-position-list">
+                    <li><a href="#">a</a></li>
+                </ul>
+                <p class="emplace_after-c">,</p>
+                <input class="iterator-input assign-position-last" type="text" name="Iterator" value="Choose" readonly>
+                <button class="iterator-btn assign-iterator-last-btn"><div class="arrow-down"></div></button>
+                <ul class="assign_iterator-last-position-list">
+                    <li><a href="#">a</a></li>
+                </ul>
+            </div>
+            <div class="initializer-list">
+                <textarea class="textarea assign-list"></textarea>
+                <button class="assign-btn">Assign!</button>
+            </div>
             <img data-tooltip="assign() is a function that assigns new contents to the forward_list container, replacing its current contents, and modifying its size accordingly. In the 'fill' version of assign, the first parameter is the number of elements to be created. The second parameter is the element to be copied and placed in the forward list. " class="question-hover" src="../images/questionMark.png"/>
         </div>
         
