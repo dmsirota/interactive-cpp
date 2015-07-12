@@ -206,9 +206,12 @@ h1 {
 /*Iterators*/
 .iterator-input,.parameter-choice-input {
     display: inline-block;
+    text-align: center;
     vertical-align: top;
-    margin-top: 10px;
+    margin-top: 5px;
     width: 200px;
+    background: #275178;
+    color: white;
 }
 /*Parameter Choice*/
 .parameter-choice-input {
@@ -227,16 +230,16 @@ h1 {
     position: absolute;
     list-style-type: none;
     border: 1px solid white;
-    margin-left: 40px;
-    margin-top: -21px;
-    width: 202px;
+    margin-left: 41px;
+    margin-top: -14px;
+    width: 200px;
     z-index: 2;
     background-color: aqua;
 }
 .assign-parameter-choice-list {
-    margin-left: 12px;
-    margin-top: -6px;
-    width: 182px;
+    margin-left: 13px;
+    margin-top: 1px;
+    width: 180px;
 }
 .iterator,.parameter-choice {
     padding: 1px;
@@ -261,9 +264,12 @@ button {
     margin-top: 10px;
     outline: none;
 }
-.question-hover {
+.question-hover,.back-arrow {
     position: absolute;
     top: 5px; right: 5px;
+}
+.back-arrow {
+    top: 3px; left: 3px;
 }
 .left {
     float: left;
@@ -278,7 +284,7 @@ button {
 .active-inlineB {
     display: inline-block;
 }
-.tooltip {
+.tooltip,.go_back_arrow {
     position: relative;
     display: inline-block;
     max-width: 250px;
@@ -293,4 +299,7 @@ button {
     left: 100%;
     font-family: 'Lato', sans-serif;
     font-weight: lighter;
+}
+.go_back_arrow {
+    max-width: 300px;
 }

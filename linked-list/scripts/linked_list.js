@@ -564,7 +564,7 @@ $('body').on('click', function(e) {
 });
 
 $('.emplace_after_iterator-position-list li').on('click', function() {
-    $('.emplace_after-position').attr('value',$(this).text());
+    $('.emplace_after-position').text($(this).text());
     $('.emplace_after_iterator-position-list').css('visibility','hidden');
 });
 
@@ -714,8 +714,17 @@ $('.emplace_after-btn').on('click', function() {
     }
 });
 
-$('.assign-parameter-choice-btn').on('click', function() {
-    $('.assign-parameter-choice-list').css('visibility','visible');
+/*Drop-Down menu for Assign Parameter Choice*/
+$('body').on('click', function(e) {
+    if(!$(e.target).hasClass('assign-parameter-choice-list') && !$(e.target).parent().hasClass('assign-parameter-choice-btn') && $('.assign-parameter-choice-list').css('visibility') === 'visible') {
+        $('.assign-parameter-choice-list').css('visibility','hidden');
+    }
+    else if($(e.target).parent().hasClass('assign-parameter-choice-btn') && $('.assign-parameter-choice-list').css('visibility') === 'visible') {
+        $('.assign-parameter-choice-list').css('visibility','hidden');
+    }
+    else if($(e.target).parent().hasClass('assign-parameter-choice-btn') && $('.assign-parameter-choice-list').css('visibility') === 'hidden') {
+        $('.assign-parameter-choice-list').css('visibility','visible');
+    }
 });
 
 $('.assign-parameter-choice-list li').on('click', function() {
@@ -723,3 +732,14 @@ $('.assign-parameter-choice-list li').on('click', function() {
     $('.assign-parameter-choice-div').hide();
     $('.assign-parameter-choice-list').css('visibility','hidden');
 });
+
+$('.back-arrow').on('click', function() {
+    if($('.assign-parameter-choice-div').is(':visible')) {
+        return;
+    }
+    else {
+        //First div that is shown on the assign-div
+        $('.assign-div > div').hide();
+        $('.assign-parameter-choice-div').show();
+    }
+})
