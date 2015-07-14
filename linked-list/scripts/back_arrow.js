@@ -1,11 +1,11 @@
-$('.back-arrow').on('mouseenter', function() {
+$('.go_back-arrow').on('mouseenter', function() {
     var $back_arrow_el = $(this);
     var $back_arrow_el_width = $back_arrow_el.outerWidth();
     var $back_arrow_el_offset = $back_arrow_el.offset();
     var $back_arrow_text = 'Click to go back to the list of parameters.';
     
     var $back_Arrow = $('<div />', {
-        'class' : 'go_back_arrow',
+        'class' : 'back_arrow',
         'text' :  $back_arrow_text
     }).appendTo('body').css({    
         'position' : 'absolute',

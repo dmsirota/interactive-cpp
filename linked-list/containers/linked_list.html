@@ -24,10 +24,10 @@
             <textarea class="iterator-input emplace_after-position" readonly>Choose</textarea>
             <button class="iterator-btn emplace_after-iterator-btn"><div class="arrow-down"></div></button>
             <ul class="emplace_after_iterator-position-list">
-                <li class="iterator emplace_after-choice_1"><a href="#">f_list.begin()</a></li>
-                <li class="iterator emplace_after-choice_2"><a href="#">f_list.before_begin()</a></li>
-                <li class="iterator emplace_after-choice_3"><a href="#">f_list.before_end()</a></li>
-                <li class="iterator emplace_after-choice_4"><a href="#">f_list.end()</a></li>
+                <li class="iterator emplace_after-choice_1">f_list.begin()</li>
+                <li class="iterator emplace_after-choice_2">f_list.before_begin()</li>
+                <li class="iterator emplace_after-choice_3">f_list.before_end()</li>
+                <li class="iterator emplace_after-choice_4">f_list.end()</li>
             </ul>
             <p class="emplace_after-c">,</p>
             <textarea class="textarea emplace_after-val"></textarea>
@@ -35,23 +35,17 @@
             <img data-tooltip="emplace_after() is a function that constructs an element and inserts it into the position after a specified element. The size of the forward list is increased by one. The first argument is an iterator pointing to the position to insert after. The second argument is the argument to construct the element with. " class="question-hover" src="../images/questionMark.png"/>
         </div>
         
-        <div class="front-div left">
-            <p class="front">front&#40;&#41;</p>
-            <button class="front-btn">Front!</button>
-            <img data-tooltip="front() is a function that returns a direct reference to the first element in the linked-list container." class="question-hover" src="../images/questionMark.png"/>
-        </div>
-        
         <!--Fill-->
         <div class="assign-div left">
-            <a href="#"><img class="back-arrow" src="../images/backArrow.png"/></a>
+            <img hidden class="go_back-arrow" src="../images/backArrow.png"/>
             <p class="assign">assign&#40;&#41;</p>
             <div class="assign-parameter-choice-div">
-                <textarea class="parameter-choice-input assign-parameter"readonly>Choose</textarea>
+                <textarea class="parameter-choice-input assign-parameter" readonly>Choose</textarea>
                 <button class="parameter_choice-btn assign-parameter-choice-btn"><div class="arrow-down"></div></button>
                 <ul class="assign-parameter-choice-list">
-                    <li class="parameter-choice assign-choice_1"><a href="#">fill</a></li>
-                    <li class="parameter-choice assign-choice_2"><a href="#">range</a></li>
-                    <li class="parameter-choice assign-choice_3"><a href="#">initializer-list</a></li>
+                    <li class="parameter-choice assign-choice_1">fill</li>
+                    <li class="parameter-choice assign-choice_2">range</li>
+                    <li class="parameter-choice assign-choice_3">initializer-list</li>
                 </ul>
             </div>
             <div class="fill">
@@ -61,23 +55,34 @@
                 <button class="assign-btn">Assign!</button>
             </div>
             <div class="range">
-                <input class="iterator-input assign-position-first" type="text" name="Iterator" value="Choose" readonly>
+                <textarea class="textarea iterator-input assign-position-first" type="text" name="Iterator" value="Choose" readonly></textarea>
                 <button class="iterator-btn assign-iterator-first-btn"><div class="arrow-down"></div></button>
                 <ul class="assign_iterator-first-position-list">
-                    <li><a href="#">a</a></li>
+                    <li class="iterator">a</li>
+                    <li class="iterator">a</li>
+                    <li class="iterator">a</li>
                 </ul>
                 <p class="emplace_after-c">,</p>
-                <input class="iterator-input assign-position-last" type="text" name="Iterator" value="Choose" readonly>
+                <textarea class="textarea iterator-input assign-position-last" type="text" name="Iterator" value="Choose" readonly></textarea>
                 <button class="iterator-btn assign-iterator-last-btn"><div class="arrow-down"></div></button>
                 <ul class="assign_iterator-last-position-list">
-                    <li><a href="#">a</a></li>
+                    <li class="iterator">a</li>
+                    <li class="iterator">a</li>
+                    <li class="iterator">a</li>
                 </ul>
+                <button class="assign-btn">Assign!</button>
             </div>
             <div class="initializer-list">
-                <textarea class="textarea assign-list"></textarea>
+                <p class="initializer-list-bracket-left">{</p><textarea class="textarea assign-initializer-list"></textarea><p class="initializer-list-bracket-right">}</p>
                 <button class="assign-btn">Assign!</button>
             </div>
             <img data-tooltip="assign() is a function that assigns new contents to the forward_list container, replacing its current contents, and modifying its size accordingly. In the 'fill' version of assign, the first parameter is the number of elements to be created. The second parameter is the element to be copied and placed in the forward list. " class="question-hover" src="../images/questionMark.png"/>
+        </div>
+        
+        <div class="front-div left">
+            <p class="front">front&#40;&#41;</p>
+            <button class="front-btn">Front!</button>
+            <img data-tooltip="front() is a function that returns a direct reference to the first element in the linked-list container." class="question-hover" src="../images/questionMark.png"/>
         </div>
         
         <div class="empty-div left">
