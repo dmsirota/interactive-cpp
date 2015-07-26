@@ -26,13 +26,13 @@
             <ul class="emplace_after_iterator-position-list">
                 <li class="iterator emplace_after-choice_1">f_list.begin()</li>
                 <li class="iterator emplace_after-choice_2">f_list.before_begin()</li>
-                <li class="iterator emplace_after-choice_3">f_list.before_end()</li>
+                <li class="iterator emplace_after-choice_3">std::forward_list&#60int&#62iterator mid</li>
                 <li class="iterator emplace_after-choice_4">f_list.end()</li>
             </ul>
             <p class="emplace_after-c">,</p>
             <textarea class="textarea emplace_after-val"></textarea>
             <button class="emplace_after-btn">Emplace After!</button>
-            <img data-tooltip="emplace_after() is a function that constructs an element and inserts it into the position after a specified element. The size of the forward list is increased by one. The first argument is an iterator pointing to the position to insert after. The second argument is the argument to construct the element with. " class="question-hover" src="../images/questionMark.png"/>
+            <img data-tooltip="emplace_after() is a function that constructs an element and inserts it into the position after a specified element. The size of the forward list is increased by one. The first argument is an iterator pointing to the position to insert after. The second argument is the argument to construct the element with. The iterator 'std::forward_list<int>iterator mid is an iterator that points to the middle element in the forward list. If the forward list has an even number of elements, the middle element is calculated to be one greater than the length of the forward list halved. The return value is an iterator that points to the new element, designated as 'std::forward_list<int>iterator it'." class="question-hover" src="../images/questionMark.png"/>
         </div>
         
         <!--Fill-->
@@ -55,20 +55,22 @@
                 <button class="assign-btn">Assign!</button>
             </div>
             <div class="range">
-                <textarea class="textarea iterator-input assign-position-first" type="text" name="Iterator" value="Choose" readonly></textarea>
+                <textarea class="iterator-input assign-position-first" readonly>Choose</textarea>
                 <button class="iterator-btn assign-iterator-first-btn"><div class="arrow-down"></div></button>
                 <ul class="assign_iterator-first-position-list">
-                    <li class="iterator">a</li>
-                    <li class="iterator">a</li>
-                    <li class="iterator">a</li>
+                    <li class="iterator">f_list.before_begin()</li>
+                    <li class="iterator">f_list.begin()</li>
+                    <li class="iterator">std::forward_list&#60int&#62iterator mid</li>
+                    <li class="iterator">f_list.end()</li>
                 </ul>
                 <p class="emplace_after-c">,</p>
-                <textarea class="textarea iterator-input assign-position-last" type="text" name="Iterator" value="Choose" readonly></textarea>
+                <textarea class="iterator-input assign-position-last" readonly>Choose</textarea>
                 <button class="iterator-btn assign-iterator-last-btn"><div class="arrow-down"></div></button>
                 <ul class="assign_iterator-last-position-list">
-                    <li class="iterator">a</li>
-                    <li class="iterator">a</li>
-                    <li class="iterator">a</li>
+                    <li class="iterator">f_list.before_begin()</li>
+                    <li class="iterator">f_list.begin()</li>
+                    <li class="iterator">std::forward_list&#60int&#62iterator mid</li>
+                    <li class="iterator">f_list.end()</li>
                 </ul>
                 <button class="assign-btn">Assign!</button>
             </div>
@@ -76,7 +78,7 @@
                 <p class="initializer-list-bracket-left">{</p><textarea class="textarea assign-initializer-list"></textarea><p class="initializer-list-bracket-right">}</p>
                 <button class="assign-btn">Assign!</button>
             </div>
-            <img data-tooltip="assign() is a function that assigns new contents to the forward_list container, replacing its current contents, and modifying its size accordingly. In the 'fill' version of assign, the first parameter is the number of elements to be created. The second parameter is the element to be copied and placed in the forward list. " class="question-hover" src="../images/questionMark.png"/>
+            <img data-tooltip="assign() is a function that assigns new contents to the forward_list container, replacing its current contents, and modifying its size accordingly. In the 'fill' version of assign, the first parameter is the number of elements to be created. The second parameter is the element to be copied and placed in the forward list. In the 'range' version of assign, the new elements constructed from each of the elements in the range between first and last. The range is [first,last). The iterator pointed by first is the first parameter and is included. The iterator pointed by last is the second parameter and is not included. The iterator 'std::forward_list<int>iterator mid is an iterator that points to the middle element in the forward list. If the forward list has an even number of elements, the middle element is calculated to be one greater than the length of the forward list halved. In the 'initializer list' version of assign, the new elements are copies of the values passed as an initializer list. An initializer list is syntatically written as '{}'. The values inside the curly brackets are separated by a comma (e.g. {1,2,3})." class="question-hover" src="../images/questionMark.png"/>
         </div>
         
         <div class="front-div left">
@@ -127,7 +129,7 @@
     <div class="container-container">
         <ul class="forward_list-info">
             <li class="forward_list-name">forward_list&lt;int&gt; f_list</li>
-            <li class="forward_list-size"><p class="forward_list-size">forward_list Size: </p><p class="forward_list-size-p">  </p> </li>
+            <li class="forward_list-size"><p class="forward_list-size">f_list Size: </p><p class="forward_list-size-p">  </p> </li>
         </ul>
         <!--Linked-List Goes here-->
         <div class="output-div active-inlineB">
@@ -138,6 +140,14 @@
             <p class="return-text">Return</p>
             <p class="return"></p>
         </div>
+    </div>
+    
+    <div class="new-list-container">
+        <ul class="forward_list2-info">
+            <li class="forward_list2-name">forward_list&lt;int&gt; f_list2</li>
+            <li class="forward_list2-size"><p class="forward_list2-size">f_list2 Size: </p><p class="forward_list2-size-p">  </p> </li>
+        </ul>
+        <!--New Linked-List Goes here-->
     </div>
     <script src="../scripts/jquery.js"></script>
     <script src="../scripts/linked_list.js"></script>
