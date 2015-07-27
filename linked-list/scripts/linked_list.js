@@ -10,7 +10,7 @@ $('.create-btn').on('click', function(){
         $('.return,.output').text('Digits only!');
     }
     else if(/([0-9]{2,})$/.test($('.create-text').val()) === true) {
-        $('.return,.output').text('Too many digits!');
+        $('.return,.output').css({'font-size':'3em', 'line-height':'30px'}).text('Too many digits! 0-9 only!');
     }
     else if ($('.create-text').val() !== '') {
         if (index === 0) {
@@ -175,8 +175,20 @@ $('.assign-btn').on('click', function() {
     /*Fill*/
     if($('.assign-div .fill').css('display') === 'inline') {
         $('.return,.output').text('');
-        if($('.assign-size').val(),$('.assign-val').val() !== '') {
-            if(index !== 0) {
+        if(/[^0-9]/.test($('.assign-size').val()) === true || /[^0-9]/.test($('.assign-val').val()) === true) {
+            $('.return,.output').text('Digits only!');
+        }
+        else if($('.assign-size').val(),$('.assign-val').val() !== '') {
+            if(/([0-9]{2,})$/.test($('.assign-size').val()) === true && /([0-9]{2,})$/.test($('.assign-val').val()) === true) {
+                $('.return,.output').css('font-size','2em').text('Size and val too large!');
+            }
+            else if(/([0-9]{2,})$/.test($('.assign-size').val()) === true && /([0-9]{2,})$/.test($('.assign-val').val()) === false) {
+                $('.return,.output').css({'font-size':'3.2em', 'line-height':'30px'}).text('Size too large! 0-9 only!');
+            }
+            else if(/([0-9]{2,})$/.test($('.assign-size').val()) === false && /([0-9]{2,})$/.test($('.assign-val').val()) === true) {
+                $('.return,.output').css({'font-size':'3.2em', 'line-height':'30px'}).text('Val too large! 0-9 only!');
+            }
+            else if(index !== 0) {
                 $('.f_list').remove();
                 index = 0;
                 var $size = $('.assign-size').val();
@@ -330,8 +342,12 @@ $('.assign-btn').on('click', function() {
     }
     /*Range*/
     else if($('.assign-div .range').css('display') === 'inline') {
-        if(index === 0) {
+        $('.return,.output').text('');
+        if($('.forward_list-info').hasClass('active') === false) {
             $('.return,.output').text('No list!');
+        }
+        else if($('.forward_list-info').hasClass('active') === true && index === 0) {
+            $('.return,.output').text('Empty list!');
         }
         else {
             if($('.assign-position-first').val(),$('.assign-position-last').val() !== 'Choose') {
@@ -366,7 +382,7 @@ $('.assign-btn').on('click', function() {
                         && $('.assign-position-last').val() === 'std::forward_list<int>iterator mid') {
                    
                     if(index === 1) {
-                        $('.return,.output').css('font-size','2.5em').text('mid out of range!');
+                        $('.return,.output').css('font-size','2.5em').text('Mid out of range!');
                     }
                     else {
                         if(f_list2_Index === 0) {
@@ -516,7 +532,7 @@ $('.assign-btn').on('click', function() {
                         && $('.assign-position-last').val() === 'f_list.end()') {
                     
                     if(index === 1) {
-                        $('.return,.output').css('font-size','2.5em').text('end out of range!');
+                        $('.return,.output').css('font-size','2.5em').text('End out of range!');
                     }
                     else {
                         if(f_list2_Index === 0) {
@@ -666,7 +682,7 @@ $('.assign-btn').on('click', function() {
                         && $('.assign-position-last').val() === 'f_list.end()') {
                     
                     if(index <= 2) {
-                        $('.return,.output').css('font-size','2em').text('mid and end out of range!');
+                        $('.return,.output').css('font-size','2em').text('Mid and End out of range!');
                     }
                     else {
                         if(f_list2_Index === 0) {
@@ -1036,8 +1052,11 @@ $('.sort-btn').on('click', function() {
               If positive number is returned, a is placed to the right of b.*/
             $array.sort(function(a,b){return a-b});
         }
-        else if ($('.sort-text').val() == 'greater') {
+        else if (/^greater$/i.test($('.sort-text').val()) === true) {
             $array.sort(function(a,b){return b-a});
+        }
+        else if(/^greater$/i.test($('.sort-text').val()) === false) {
+            $('.return,.output').css('font-size','2em').text('Unrecognized operator!');
         }
         /*More pred conditions later here*/
         for(var i = 2; i <= $size; i++) {
@@ -1092,7 +1111,13 @@ $('.unique-btn').on('click', function() {
 
 $('.emplace_front-btn').on('click', function() {
     var $val = $('.emplace_front-text').val();
-    if($('.forward_list-info').hasClass('active') === true && index === 0) {
+    if($('.forward_list-info').hasClass('active') === true && /[^0-9]/.test($val) === true) {
+        $('.return,.output').text('Digits only!');
+    }
+    else if($('.forward_list-info').hasClass('active') === true && /([0-9]{2,})$/.test($val) === true) {
+        $('.return,.output').css({'font-size':'3em', 'line-height':'30px'}).text('Too many digits! 0-9 only!');
+    }
+    else if($('.forward_list-info').hasClass('active') === true && index === 0) {
         $('.return,.output').text('');
         var $f_listHead = $('<li />', { 
             class: 'f_listHead-item',
@@ -1251,7 +1276,31 @@ $('.assign_iterator-last-position-list li').on('click', function(e) {
 $('.emplace_after-btn').on('click', function() {
     var $position = $('.emplace_after-position').val();
     var $val = $('.emplace_after-val').val();
-    if($('.forward_list-info').hasClass('active') === true && ($position !== 'Choose')) {
+    if($('.forward_list-info').hasClass('active') === true 
+       && /[^0-9]/.test($val) === true 
+       && $position === 'Choose') {
+        
+         $('.return,.output').css({'font-size':'3.2em', 'line-height':'30px'}).text('Digits only! No iterator!');
+    }
+    else if($('.forward_list-info').hasClass('active') === true 
+            && /([0-9]{2,})$/.test($val) === true
+            && $position === 'Choose') {
+        
+        $('.return,.output').css({'font-size':'2.5em', 'line-height':'30px'}).text('Too many digits! 0-9 only! No iterator!');
+    }
+    else if($('.forward_list-info').hasClass('active') === true 
+            && /[^0-9]/.test($val) === true 
+            && $position !== 'Choose') {
+    
+        $('.return,.output').text('Digits only!');
+    }
+    else if($('.forward_list-info').hasClass('active') === true
+            && /([0-9]{2,})$/.test($val) === true
+            && $position !== 'Choose') {
+        
+        $('.return,.output').css({'font-size':'2.7em', 'line-height':'30px'}).text('Too many digits! 0-9 only!');
+    }
+    else if($('.forward_list-info').hasClass('active') === true && $position !== 'Choose') {
         if($position === '') {
             $('.return,.output').text('No pos!');
         }
@@ -1434,9 +1483,6 @@ $('.emplace_after-btn').on('click', function() {
             } 
         }
     }
-    else if($('.forward_list-info').hasClass('active') === true && ($position === 'Choose')) {
-        $('.return,.output').text('No iterator');
-    }
     else {
         $('.return,.output').text('No list!');
     }
@@ -1463,7 +1509,7 @@ $('.assign-parameter-choice-list li').on('click', function(e) {
     $('.go_back-arrow').removeAttr('hidden');
 });
 
-$('.go_back-arrow').on('click', function() {
+$('.assign-div .go_back-arrow').on('click', function() {
     if(!$('.assign-parameter-choice-div').is(':visible')) {
         $('.assign-div').css('width','250px');
         //First div that is shown on the assign-div
