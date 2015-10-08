@@ -2,9 +2,6 @@
     margin: 0;
     padding: 0;
 }
-img {
-    display: inline-block;
-}
 body {
     width: 100%;
 }
@@ -60,42 +57,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28343b', end
     background-position: top;
 
 }
-.about-text {
-    margin-top: 70px;
-    margin-bottom: 20px;
-    background: rgba(255, 0, 0, 0.5);
-    box-sizing: border-box;
-    border: 5px solid red;
-}
-.about-tab-btn {
-    height: 75px;
-    line-height: 75px;
-    font-size: 3em;
-    text-align: center;
-    color: red;
-    transition: all 1s ease;
-}
-.about-tab-btn:hover {
-    letter-spacing: 5px;
-}
-.about-tab1, .about-tab2 {
-    margin: 20px 0;
-}
-.about-tab2 {
-    display: none;
-}
-.image {
-    height: 350px;
-    box-sizing: border-box;
-    border: 1px solid black;
-}
-footer {
-    height: 100px;
-    background: #555;
-}
-.active {
-    display: block;
-}
-.shadow {
-    box-shadow: 0 0 10px #f00 inset;
+.container {
+    width: 80%;
+    margin: 60px auto;
+    
 }
